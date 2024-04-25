@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students per District</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    {% for district_data in data %}
+    <div class="district-container">
+        <h2 class="district-name">{{ district_data.tuman }}</h2>
+        <div class="language-container">
+            <h3>Chet tili:</h3>
+            <ul class="language-list">
+                {% for language, count in district_data.language_counts.items %}
+                <li class="language-item">{{ language }}: {{ count }} ta</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="proficiency-container">
+            <h3>Daraja:</h3>
+            <ul class="proficiency-list">
+                {% for language, proficiency_counts in district_data.proficiency_counts.items %}
+                <li>{{ language }}:
+                    <ul class="nested-list">
+                        {% for proficiency, count in proficiency_counts.items %}
+                        <li>{{ proficiency }}: {{ count }} ta</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="status-container">
+            <h3>Holat:</h3>
+            <ul class="status-list">
+                {% for language, status_counts in district_data.status_counts.items %}
+                <li>{{ language }}:
+                    <ul class="nested-list">
+                        {% for status, count in status_counts.items %}
+                        <li>{{ status }}: {{ count }} ta</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>
+<style>
+    /* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.district-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.district-name {
+    color: #333;
+    margin-top: 0;
+}
+
+/* Language List */
+.language-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.language-item {
+    margin-left: 20px;
+}
+
+/* Proficiency List */
+.proficiency-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.proficiency-list ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+/* Status List */
+.status-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.status-list ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+/* Nested Lists */
+.nested-list {
+    padding-left: 20px;
+}
+
+/* Different Background Colors for Containers */
+.language-container {
+    background-color: #e6f7ff; /* Light Blue */
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.proficiency-container {
+    background-color: #ffe6cc; /* Light Orange */
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.status-container {
+    background-color: #e6ffe6; /* Light Green */
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+</style>

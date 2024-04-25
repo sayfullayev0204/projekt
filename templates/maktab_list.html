@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tumanlar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .tumanlar-container {
+            width: 80%;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .tuman {
+            width: calc(25% - 10px);
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .tuman a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+            font-size: 30px;
+        }
+        .tuman a:hover {
+            color: #0056b3;
+        }
+        p{
+            font-size: 20px;
+        }
+    </style>
+</head>
+    <h1 style="text-align: center;">{{ tuman.Nomi }} tumanidagi maktablar</h1>
+    <div style="display: flex; margin-left: 10px;">
+        <div class="">
+            {% for maktab in maktablar %}
+            <p>{{ maktab.Nomi }} - {{ maktab.oquvchi_soni }} o'quvchi</p>
+            {% endfor %}
+        </div>
+        <div class="tumanlar-container">
+            {% for maktab in maktablar %}
+            <div class="tuman">
+                <a href="{% url 'oquvchi_list' maktab.id %}">{{ maktab.Nomi }}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

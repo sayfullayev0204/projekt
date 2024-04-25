@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ oquvchi.Ismi }} {{ oquvchi.Familyasi }} </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ oquvchi.Ismi }} {{ oquvchi.Familyasi }} haqida to'liq malumot</h1>
+        <p><strong>Sharfi:</strong> {{oquvchi.Sharfi}}</p>
+        <p><strong>Viloat:</strong> {{oquvchi.viloyat}} </p> 
+        <p><strong>Tuman:</strong> {{oquvchi.tuman}} </p>
+        <p><strong>Maktab:</strong> {{oquvchi.maktab}} </p>
+        <p><strong>Mahallasi:</strong> {{oquvchi.maxallasi}} </p>
+        <p><strong>JSHSHIR:</strong> {{oquvchi.JSHSHIR}} </p>
+        <p><strong>Telefon raqami:</strong> {{oquvchi.Telefon_raqam}} </p>
+        <p><strong>Til bilishi:</strong> {{oquvchi.Biladigan_tili}} </p>
+        <p><strong>Til bilish darajasi:</strong> {{oquvchi.Til_bilish_darajasi}}</p>
+        <p><strong>Til bilish holati:</strong> {{oquvchi.Holati}}</p>
+        <a href="{% url 'tuman_list' %}" class="link">Bosh sahifaga qaytish</a>
+    </div>
+</body>
+</html>
+<style>
+    body {
+    margin-top: 30px;
+    
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    margin-top: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #000000;
+}
+
+p {
+    margin: 0.5em 0;
+    color: #000000;
+}
+
+strong {
+    font-weight: bold;
+    color: #000000;
+}
+
+.link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+</style>
